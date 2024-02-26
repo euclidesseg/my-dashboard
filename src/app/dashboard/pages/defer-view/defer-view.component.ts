@@ -7,4 +7,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   templateUrl: './defer-view.component.html',
   styles: ``,
 })
-export class DeferViewComponent {}
+export default class DeferViewComponent {}

@@ -7,4 +7,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   templateUrl: './defer-option.component.html',
   styleUrl: './defer-option.component.css',
 })
-export class DeferOptionComponent {}
+export default class DeferOptionComponent {}

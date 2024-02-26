@@ -18,4 +18,22 @@
 
 4: standaloneComponent: en cada componente se utiliza para marcar un componente como independiente. Esto significa que el componente
                           no necesita ser declarado en un módulo NgModule para funcionar.
-  al marcar un componente como independiente hace que la aplicacionno use ningun modulo para manejar componentes
+            al marcar un componente como independiente hace que la aplicacionno use ningun modulo para manejar componentes
+
+5: Rutas: dentro del direcctorio de App se crea por defecto uno archivo llamado app.routes.ts
+   y se llamaran las rutas de dos maneras
+  01: loadComponent:() => import ('./dashboard/dashboard.component').then((component) => component.DashboardComponent) 
+  en las versiones anteriores a la 17 se cargaria o se llamaria un modulo hijo el cual tiene rutas hijas en este caso se lla un componenente hojo app.component
+
+  02: loadComponent:() => import ('./dashboard/dashboard.component'), de esta manera tambien podemos llamar a un componente dentro de otro subdirectorio o modulo
+      pero par que nos funcione el componente debe estar exportado por defecto
+
+la forma de indicar que este componente tiene hojos es agregando  una propiedad children que vendria a ser un arreglo de rutas las cuales pertenecen
+al componente que se cargará y se haaria de la siguieente manera:
+ path: 'dashboard',
+    loadComponent: () => import('./dashboard/dashboard.component'),
+    children:[
+        {
+            
+        }
+    ]

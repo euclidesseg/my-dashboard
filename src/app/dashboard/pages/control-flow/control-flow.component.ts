@@ -7,4 +7,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   template: './control-flow.html',
   styleUrl: './control-flow.component.css',
 })
-export class ControlFlowComponent { }
+export default class ControlFlowComponent { }
