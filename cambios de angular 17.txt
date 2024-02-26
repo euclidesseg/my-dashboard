@@ -1,0 +1,21 @@
+1: ===== Desaparecio el App.Module
+  En su lugar tenemos el app.config.ts
+  Este archivo app.config.ts nos va a permitir hacer inyeccion de modulos o otros proveedores para tener el mismo comportamientos de antes
+
+  Entonces anteriormente el main.ts al momento de levantar el bootstrap de la aplicacion usaba el AppModule
+  ahora ya no usa el appModule si no el app.config
+
+2:    selector: 'app-root',
+      standalone: true,// se utiliza para marcar un componente como independiente. Esto significa que el componente
+                          no necesita ser declarado en un módulo NgModule para funcionar.
+      imports: [CommonModule, RouterOutlet],
+      templateUrl: './app.component.html',
+      styleUrl: './app.component.css'
+    })
+
+3: ===== AppRoute: Crea un archivo de rutas que se proveen automaticamente en el app.config tal cual como se proveee o se importa
+  el modulo de rutas en el antigui appModule
+
+4: standaloneComponent: en cada componente se utiliza para marcar un componente como independiente. Esto significa que el componente
+                          no necesita ser declarado en un módulo NgModule para funcionar.
+  al marcar un componente como independiente hace que la aplicacionno use ningun modulo para manejar componentes
