@@ -1,4 +1,13 @@
-<router-outlet></router-outlet>
+<div class="bg-slate-100 w-screen h-screen antialiased text-slate-300 selection:bg-blue-600 selection:text-white">
+  <div class="flex relative w-full overflow-hidden">
+
+    <app-sidemenu></app-sidemenu>
+    <div class="text-black relative z-10 px-2 mt-2 w-full">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<!-- <router-outlet></router-outlet> -->
 <!-- Si sale error recordemos que estamos trabajando con standalone component-->
 <!-- en el que cada componente es como un pequeño modulo, entonces en el modulo o componente en donde se van a mostrar nuestras rutas hijas-->
 <!-- necesitamos importar en ves del CommonModule el RouterModule para importar el sistema de rutas -->
