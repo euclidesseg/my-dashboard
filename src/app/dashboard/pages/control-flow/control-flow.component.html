@@ -1,44 +1,93 @@
+<section class="mb-10 overflow-x-auto container bg-white rounded shadow p-10 ">
+
+  <app-title
+   [title]="'Control Flow'"
+   [paragraph]="'En angular el control flow o flujos de control son conocidos como estructuras de control entre ellas {*ngIf @if @else}, {@swith, @case,@default}, {*ngFor, @for} '">
+  </app-title>
+
+</section>
+
 <section class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-10 overflow-x-auto">
-<!-- ngIf @If -->
-<div class="bg-white rounded shadow p-10">
-  <h2 class="font-bold">if: {{showContent()}}</h2>
-  <button class="p-1 m-5 rounded bg-blue-700 text-white" (click) = "toggleContent()">
-    click me
-  </button>
+  <!-- ngIf @If -->
+  <div class="bg-white rounded shadow p-10">
+    <h2 class="font-bold">if: {{showContent()}}</h2>
+    <button class="p-1 m-5 rounded bg-blue-700 text-white" (click)="toggleContent()">
+      click me
+    </button>
 
-  @if(showContent()){
+    @if(showContent()){
     <p>Hola mundo</p>
-  }@else{
+    }@else{
     <p class="font-bold w-fit">**********</p>
-  }
-</div>
+    }
+  </div>
 
-<!-- ngIf @If -->
-<div class="bg-white rounded shadow p-10">
-  <h2 class="font-bold">switch: {{grade()}}</h2>
-  <button type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" (click) ="toggleGrade('I')">I</button>
-  <button type="button" class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" (click) ="toggleGrade('A')">A</button>
-  <button type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" (click) ="toggleGrade('S')">S</button>
-  <button type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" (click) ="toggleGrade('E')">E</button>
+  <!-- ngIf @If -->
+  <div class="bg-white rounded shadow p-10">
+    <h2 class="font-bold">switch: {{grade()}}</h2>
+    <button type="button"
+      class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+      (click)="toggleGrade('I')">I</button>
+    <button type="button"
+      class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+      (click)="toggleGrade('A')">A</button>
+    <button type="button"
+      class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+      (click)="toggleGrade('S')">S</button>
+    <button type="button"
+      class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+      (click)="toggleGrade('E')">E</button>
 
 
-  @switch(grade()){
+    @switch(grade()){
     @case('I'){
-      <p class="text-lime-900">{{'<= 25%'}}</p>
+    <p class="text-lime-900">{{'<= 25%'}}</p>
+        }
+        @case('A'){
+        <p class="text-lime-900">>=26% || <=50%< /p>
+            }
+            @case('S'){
+            <p class="text-lime-900">>=51% || <=75%< /p>
+                }
+                @case('E'){
+                <p class="text-lime-900">>=76% || <=100%< /p>
+                    }
+                    @default{
+                    <p>Reprobado</p>
+                    }
+                    }
+  </div>
+  <div class="bg-white rounded shadow p-10">
+    <h2 class="font-bold">{{"*ngFor, @for sin @empty"}}</h2>
+
+    <span
+      class="bg-green-100 text-green-800 font-bold mt-5 w-fit block text-xl me-2 mb-5 text-center px-2.5 py-0.5 rounded border border-green-400">Frameworks</span>
+
+    @for (framework of frameWorks(); track framework; let i = $index, first = $first, last = $last, even = $even, count
+    = $count, odd = $odd) {
+    <span [class]="{
+        'bg-red-100': even && !first && !last,
+        'bg-red-400': odd && !first && !last,
+        'bg-purple-300': first || last,
+      }"
+      class="bg-gray-100 text-gray-800 font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-400 border border-gray-500">{{i+1
+      +"/"+ count}} - {{framework}}</span>
     }
-    @case('A'){
-      <p class="text-lime-900">>=26% || <=50%</p>
+  </div>
+
+  <!-- ////////////////////////////// -->
+  <div class="bg-white rounded shadow p-10">
+    <h2 class="font-bold">{{"*ngFor, @for con @empty"}}</h2>
+    <span
+      class="bg-green-100 text-green-800 font-bold mt-5 w-fit block text-xl me-2 mb-5 text-center px-2.5 py-0.5 rounded border border-green-400">Frameworks
+      2</span>
+
+    @for (framework of frameWorks2(); track $index) {
+    <span
+      class="bg-gray-100 text-gray-800 font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-400 border border-gray-500">{{framework}}</span>
+    }@empty {
+    <p class="danger font-bold">No hay frameworks agregados</p>
     }
-    @case('S'){
-      <p class="text-lime-900">>=51% || <=75%</p>
-    }
-    @case('E'){
-      <p class="text-lime-900">>=76% || <=100%</p>
-    }
-    @default{
-      <p>Reprobado</p>
-    }
-  }
-</div>
+  </div>
 
 </section>
