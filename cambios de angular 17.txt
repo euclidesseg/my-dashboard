@@ -22,7 +22,7 @@
 
 5: Rutas: dentro del direcctorio de App se crea por defecto uno archivo llamado app.routes.ts
    y se llamaran las rutas de dos maneras
-  01: loadComponent:() => import ('./dashboard/dashboard.component').then((component) => component.DashboardComponent) 
+  01: loadComponent:() => import ('./dashboard/dashboard.component').then((component) => component.DashboardComponent)
   en las versiones anteriores a la 17 se cargaria o se llamaria un modulo hijo el cual tiene rutas hijas en este caso se lla un componenente hojo app.component
 
   02: loadComponent:() => import ('./dashboard/dashboard.component'), de esta manera tambien podemos llamar a un componente dentro de otro subdirectorio o modulo
@@ -34,6 +34,13 @@ al componente que se cargará y se haaria de la siguieente manera:
     loadComponent: () => import('./dashboard/dashboard.component'),
     children:[
         {
-            
+
         }
     ]
+
+6: agregar alias
+  01. nos vamos a tsconfig.json dentro del objeto compilerOptions
+  02. configuramos un arreglo en el que iran las rutas y alias que queramos agregar
+    "paths": {
+      "@shared/*":["./src/app/dashboard/shared/*"],
+    },
