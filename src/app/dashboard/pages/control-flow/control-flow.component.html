@@ -63,14 +63,14 @@
 
     @for (framework of frameWorks(); track framework; let i = $index, first = $first, last = $last, even = $even, count
     = $count, odd = $odd) {
-    <span [class]="{
+    <p [class]="{
         'bg-red-100': even && !first && !last,
         'bg-red-400': odd && !first && !last,
         'bg-purple-300': first || last,
       }"
 
-      class="bg-gray-100 text-gray-800 font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-400 border border-gray-500">{{i+1
-      +"/"+ count}} - {{framework}}</span>
+      class="bg-gray-100 text-gray-800 font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-400 border border-gray-500 mb-5 w-fit">{{i+1
+      +"/"+ count}} - {{framework}}</p>
     }
   </div>
   <!-- ////////////////////////////// -->

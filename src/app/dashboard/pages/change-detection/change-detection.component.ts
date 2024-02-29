@@ -54,11 +54,14 @@ export default class ChangeDetectionComponent {
 
 //# Cuando una propiedad se modifica angular tiene una libreria que se llama son zonJs el cual detecta cambios en alguna
 //# parte de nuestra aplicacion esos cambios son aplicados al tener la propiedad por defecto
+//# En este enfoque, Angular realiza la detección de cambios en todos los componentes en cada 
+//# ciclo de detección de cambios, independientemente de si han cambiado o no sus entradas.
 //? changeDetection: ChangeDetectionStrategy.Default
 //# Ahoara cuando la cambiamos a
 //? changeDetection: ChangeDetectionStrategy.OnPush
-//# Esta nueva propiedad esta pendiente de menos puntos de cambios en la aplicacion
-//! Ahora de esta manera los cambios no se hacen automaticamente
+//! Ahora con este enfoque los cambios no se hacen automaticamente
+//# Este enfoque mejora el rendimiento de Angular al reducir la cantidad de 
+//# detecciones de cambios que se realizan, ya que solo se activan cuando las entradas del componente cambian o se notifica un cambio manualmente.
 
 //* El beneficio es que angular esta menos pendiente de los cambios que se generan y mejora el performance
 //*

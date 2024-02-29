@@ -8,4 +8,9 @@ import { Component, ViewEncapsulation } from '@angular/core';
   template: `<h1>Hola mundo</h1>`,
   styles: ``,
 })
-export class HeavyLoadersSlowComponent {}
+// #componente bloqueante
+export class HeavyLoadersSlowComponent {
+  constructor(){
+    console.log("Heavi slow")
+  }
+}
