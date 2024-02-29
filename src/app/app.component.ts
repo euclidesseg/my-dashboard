@@ -12,3 +12,6 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
   title = 'my-dashboard';
 }
+
+// !El ComonModule es necesario solo cuando se van a usar directivas como:
+// !@for @If O pipes

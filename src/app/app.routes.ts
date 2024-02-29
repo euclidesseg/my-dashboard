@@ -8,7 +8,7 @@ export const routes: Routes = [
       {
         path: 'change-detection',
         title: 'Change Detection',
-        loadComponent: () =>   import('./dashboard/pages/change-detection/change-detection.component' ),
+        loadComponent: () =>   import('./dashboard/pages/change-detection/change-detection.component'),
       },
       {
         path: 'control-flow',
@@ -41,7 +41,7 @@ export const routes: Routes = [
         loadComponent: () =>   import('./dashboard/pages/view-transition/view-transition.component'),
       },
       {
-        path:'',
+        path:"",
         redirectTo: 'control-flow',
         pathMatch: 'full',
       },

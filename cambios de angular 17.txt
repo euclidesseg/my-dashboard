@@ -38,7 +38,8 @@ al componente que se cargará y se haaria de la siguieente manera:
         }
     ]
 
-6: agregar alias
+    <!--  -->
+6: //#agregar alias
   01. nos vamos a tsconfig.json dentro del objeto compilerOptions
   02. configuramos un arreglo en el que iran las rutas y alias que queramos agregar
     "paths": {

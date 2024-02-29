@@ -11,9 +11,10 @@ type Grade = 'A' | 'S' | 'E' | 'I' | 'D'
 })
 export default class ControlFlowComponent{
 
-  // creamos una señal
-  // las señales se utilizan para la comunicación de eventos dentro de la aplicación Angular,
-  // public showContent = signal(false).asReadonly;   que sea de solo lectura no podre cambiar el valor de la signals
+  // *CREAMOS UNA SEÑAL
+  // #las señales se utilizan para la comunicación de eventos dentro de la aplicación Angular,
+  // #public showContent = signal(false).asReadonly;   que sea de solo lectura no podre cambiar el valor de la signals
+
   public showContent = signal(false);
   public grade = signal<Grade>('D');
 
