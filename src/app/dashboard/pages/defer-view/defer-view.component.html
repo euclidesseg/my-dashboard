@@ -1,1 +1,29 @@
-<app-heavy-loaders-slow></app-heavy-loaders-slow>
+
+
+<app-title
+[title]="'Defer View / Blocs'"
+[paragraph]="' puedo cargar varios componentes y mientreas se cargan mostrareun mensaje que diga cargandoAhora estos componentes seran cargados uno sobre otro pero yo puedo especificar con defer que un componente no solo se cargara cuando Lo digamos si no cuando el usuario lo este viendo es secir en este componente hay partes que crean scroll el ultimo comopnente no se mostrara hasta que el usuario no baje hasta el. eso lo logramos con on viewport como parametro enc  @defer(){}'"></app-title>
+<section class="grid grid-cols-1">
+
+  <!--! puedo cargar varios componentes y mientreas se cargan por el deger mostrare un mensaje que diga cargando -->
+  <!--! Ahora estos componentes seran cargados uno sobre otro pero yo puedo especificar con defer que un componente no solo se cargara cuando-->
+  <!--! Lo digamos si no cuando el lo este viendo  -->
+
+  @defer () {
+    <app-heavy-loaders-slow [cssClass] = "'bg-blue-500'"></app-heavy-loaders-slow>
+  }@placeholder {
+    <p class="h-[600px] w-full bg-gradient-to-r from-gray-200 to-gray-400 animate-pulse">Cargando...</p>
+  }
+  <!--! Se dispara cuando el navegador carga toda la pagina poc completo -->
+  @defer (on idle) {
+    <app-heavy-loaders-slow [cssClass] = "'bg-cyan-500'"></app-heavy-loaders-slow>
+  }@placeholder {
+    <p class="h-[600px] w-full bg-gradient-to-r from-blue-200 to-gray-400 animate-pulse">Cargando...</p>
+  }
+  <!--! Sr va a disparar cuando este componente entre en el viewport -->
+  @defer (on viewport) { 
+    <app-heavy-loaders-slow [cssClass] = "'bg-purple-500'"></app-heavy-loaders-slow>
+  }@placeholder {
+    <p class="h-[600px] w-full bg-gradient-to-r from-green-200 to-gray-400 animate-pulse">Cargando...</p>
+  }
+</section>

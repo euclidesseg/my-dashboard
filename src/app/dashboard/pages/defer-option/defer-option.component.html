@@ -1,1 +1,72 @@
-<p>defer-option works!</p>,
+
+<app-title [title]="'Defer Triggers '"></app-title>
+<section >
+  <h1 class="text-xl"></h1>
+  <hr class=" my-2 ">
+  <!--! este componente se va a cargar cuando hay una interaccion cn el blocque que esta dentro del placeHolder  -->
+  <!--! y devido a esto todo lo que este dntro del componente ts y html  del app-heavy-loaders-fast se va a retardar -->
+  
+  @defer (on interaction) {
+    <app-heavy-loaders-fast [cssClass]="'bg-blue-500 h-20'">
+      <span>On Intereaction</span>
+    </app-heavy-loaders-fast>
+  }@placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      click para activar con interaccion
+    </div>
+  }
+
+  <button type="button" 
+      #btnInteraction
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600  focus:outline-none"
+      >Click para activar el componente
+  </button>
+  <!--! Le delego la interaccion al boton mediante una referencia local-->
+  @defer (on interaction(btnInteraction)) {
+    <app-heavy-loaders-fast [cssClass]="'bg-red-500 h-20'">
+      <span>On interaction button</span>
+    </app-heavy-loaders-fast>
+  }@placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      preciona el boton para activar el componente
+    </div>
+  }
+
+
+  <button type="button" 
+      #btnHover
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600  focus:outline-none"
+      >hover para activar el componente
+  </button>
+
+  @defer (on hover(btnHover)) {
+    <app-heavy-loaders-fast [cssClass]="'bg-cyan-500 h-20'">
+      <span>On hover button </span>
+    </app-heavy-loaders-fast>
+  }@placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      cuando hagas hover sobre el boton se mostra el componente
+    </div>
+  }
+
+  @defer (on immediate) {
+    <app-heavy-loaders-fast [cssClass]="'bg-gray-500 h-20'">
+      <span>On imediate</span>
+    </app-heavy-loaders-fast>
+  }@placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      cuando hagas hover sobre el boton se mostra el componente
+    </div>
+  }
+
+  @defer (on timer(3000)) {
+    <app-heavy-loaders-fast [cssClass]="'bg-yellow-500 h-20'">
+      <span>On timer</span>
+    </app-heavy-loaders-fast>
+  }@placeholder {
+    <div class="w-full h-20 bg-purple-100">
+      faltan 3 segundos
+    </div>
+  }
+
+</section>

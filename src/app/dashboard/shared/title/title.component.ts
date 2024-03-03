@@ -14,7 +14,7 @@ import { Component, Input } from '@angular/core';
   styles: ``,
 })
 export class TitleComponent {
-  @Input({required: true}) title!:string; // ahoara puedo indicar que los inputs son o no son requeridos
+  @Input({required: true}) title!:string | undefined; // ahoara puedo indicar que los inputs son o no son requeridos
   @Input() paragraph!:string;
 
 }

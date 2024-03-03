@@ -1,16 +1,23 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation, input } from '@angular/core';
 
 @Component({
   selector: 'app-heavy-loaders-slow',
   standalone: true,
   imports: [CommonModule],
-  template: `<h1>Hola mundo</h1>`,
+  template: `
+    <section [ngClass]="['w-full h-[600px]', cssClass]">
+  </section>
+  `,
   styles: ``,
 })
 // #componente bloqueante
 export class HeavyLoadersSlowComponent {
+  @Input({required:true}) cssClass!:string;
   constructor(){
-    console.log("Heavi slow")
+    const start = Date.now();
+    while(Date.now() - start < 3000){
+
+    }
   }
 }
